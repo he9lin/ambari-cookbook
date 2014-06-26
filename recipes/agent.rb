@@ -21,5 +21,5 @@ ruby_block 'edit ambari agent ini file' do
 end
 
 execute 'start ambari agent' do
-  command 'ambari-agent start'
+  command 'ambari-agent restart'
 end

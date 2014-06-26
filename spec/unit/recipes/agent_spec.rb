@@ -43,7 +43,7 @@ describe "ambari::agent" do
 
     it 'starts the ambari-agent' do
       expect(chef_run).to \
-        run_execute('start ambari agent').with(command: 'ambari-agent start')
+        run_execute('start ambari agent').with(command: 'ambari-agent restart')
     end
   end
 end
