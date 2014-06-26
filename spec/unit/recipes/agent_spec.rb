@@ -14,6 +14,7 @@ describe "ambari::agent" do
   end
 
   it 'includes the `base` recipe' do
+    p fixture_path
     expect(chef_run).to include_recipe('ambari::base')
   end
 

@@ -10,7 +10,7 @@ ambari_server_fqdn = ambari_servers[0][:fdqn]
 
 ruby_block 'edit ambari agent ini file' do
   block do
-    AmbariAgentInitFileEditor.call(
+    AmbariAgentInitFileEdit.call(
       '/etc/ambari-agent/conf/ambari-agent.ini', ambari_server_fqdn)
   end
 end
