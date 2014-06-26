@@ -1,6 +1,8 @@
-# ambari-cookbook
+# Chef Cookbook for Apache Ambari
 
-TODO: Enter the cookbook description here.
+*WIP*
+
+Install and configures Apache Ambari server and agents.
 
 ## Supported Platforms
 
@@ -48,4 +50,4 @@ Include `ambari` in your node's `run_list`:
 
 ## License and Authors
 
-Author:: YOUR_NAME (<YOUR_EMAIL>)
+Author:: Lin He (<he9lin@gmail.com>)
