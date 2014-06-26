@@ -15,7 +15,7 @@ describe "ambari::server" do
 
   it 'runs a execute to setup ambari-server' do
     expect(chef_run).to \
-      run_execute('setup ambari server').with(command: 'ambari-server setup')
+      run_execute('setup ambari server').with(command: 'ambari-server setup -s')
   end
 
   it 'starts the ambari-server' do
