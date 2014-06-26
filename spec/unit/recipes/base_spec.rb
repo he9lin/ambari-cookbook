@@ -2,15 +2,15 @@ require 'spec_helper'
 
 describe "ambari::base" do
   let(:chef_run) do
-    runner = ChefSpec::Runner.new.converge(described_recipe)
-  end
-
-  it "installs the wget package" do
-    expect(chef_run).to install_package 'wget'
+    ChefSpec::Runner.new.converge(described_recipe)
   end
 
   it "installs the ntp package" do
     expect(chef_run).to install_package 'ntp'
+  end
+
+  it 'enables the ntpd service' do
+    expect(chef_run).to enable_service('ntpd')
   end
 
   it 'starts the ntpd service' do
