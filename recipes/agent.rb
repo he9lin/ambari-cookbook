@@ -4,9 +4,14 @@ package 'ambari-agent'
 
 # Find FQDN of an Ambari server
 ambari_servers = search(:node, 'role:ambari_server')
-return 'Could not find any Ambari servers. Ambari agents not started' \
+
+return log('Could not find any Ambari servers. Ambari agents not started') \
   if ambari_servers.empty?
-ambari_server_fqdn = ambari_servers[0][:fdqn]
+
+ambari_server_fqdn = ambari_servers[0][:fqdn]
+
+return "Ambari server configuation is missing fqdn" \
+  unless ambari_server_fqdn
 
 ruby_block 'edit ambari agent ini file' do
   block do
