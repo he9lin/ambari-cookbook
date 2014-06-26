@@ -1,3 +1,5 @@
+include_recipe 'ambari::setup_hosts'
+
 package 'ntp'
 
 service 'ntpd' do

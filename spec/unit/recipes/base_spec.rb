@@ -5,6 +5,10 @@ describe "ambari::base" do
     ChefSpec::Runner.new.converge(described_recipe)
   end
 
+  it 'includes the `setup_hosts` recipe' do
+    expect(chef_run).to include_recipe('ambari::setup_hosts')
+  end
+
   it "installs the ntp package" do
     expect(chef_run).to install_package 'ntp'
   end
