@@ -25,13 +25,13 @@ describe 'ambari::setup_hosts' do
 
   it 'creates a hostsfile entry for the ambari server' do
     expect(chef_run).to create_hostsfile_entry('192.168.1.101')
-        .with_hostname('ambari1.heyooklabs')
+        .with_hostname('ambari1')
   end
 
   it 'creates hostsfile entries for the ambari agents' do
     expect(chef_run).to create_hostsfile_entry('192.168.1.102')
-        .with_hostname('ambari2.heyooklabs')
+        .with_hostname('ambari2')
     expect(chef_run).to create_hostsfile_entry('192.168.1.103')
-        .with_hostname('ambari3.heyooklabs')
+        .with_hostname('ambari3')
   end
 end
