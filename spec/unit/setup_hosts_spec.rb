@@ -14,7 +14,8 @@ describe 'ambari::setup_hosts' do
   let(:agents) do
     [
       { ipaddress: '192.168.1.102', fqdn: 'ambari2.heyooklabs', hostname: 'ambari2' },
-      { ipaddress: '192.168.1.103', fqdn: 'ambari3.heyooklabs', hostname: 'ambari3' }
+      { ipaddress: '192.168.1.103', fqdn: 'ambari3.heyooklabs', hostname: 'ambari3' },
+      { ipaddress: '192.168.1.104', machinename: 'ambari4.heyooklabs', hostname: 'ambari4' }
     ]
   end
 
@@ -25,13 +26,15 @@ describe 'ambari::setup_hosts' do
 
   it 'creates a hostsfile entry for the ambari server' do
     expect(chef_run).to create_hostsfile_entry('192.168.1.101')
-        .with_hostname('ambari1')
+        .with_hostname('ambari1').with_aliases(['ambari1.heyooklabs'])
   end
 
   it 'creates hostsfile entries for the ambari agents' do
     expect(chef_run).to create_hostsfile_entry('192.168.1.102')
-        .with_hostname('ambari2')
+        .with_hostname('ambari2').with_aliases(['ambari2.heyooklabs'])
     expect(chef_run).to create_hostsfile_entry('192.168.1.103')
-        .with_hostname('ambari3')
+        .with_hostname('ambari3').with_aliases(['ambari3.heyooklabs'])
+    expect(chef_run).to create_hostsfile_entry('192.168.1.104')
+        .with_hostname('ambari4').with_aliases(['ambari4.heyooklabs'])
   end
 end

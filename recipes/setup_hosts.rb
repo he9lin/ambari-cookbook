@@ -9,7 +9,7 @@ nodes.each do |node|
 
   hostsfile_entry node[:ipaddress] do
     hostname  node[:hostname]
-    aliases   [node[:fqdn]]
+    aliases   [FQDNFinder.(node)]
     unique    true
   end
 end
